@@ -59,7 +59,7 @@ class Pubmed_XML_Parser(object):
                 context['pub_mode'] = Article.attrib['PubModel']
 
                 context['issn'] = Article.findtext('Journal/ISSN')
-                context['issn_type'] = Article.find('Journal/ISSN').attrib['IssnType']
+                context['issn_type'] = Article.find('Journal/ISSN').attrib['IssnType'] if Article.find('Journal/ISSN').attrib['IssnType'] else 'NA'
 
                 context['journal'] = Article.findtext('Journal/Title')
                 context['iso_abbr'] = Article.findtext('Journal/ISOAbbreviation')
